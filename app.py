@@ -14,10 +14,10 @@ app.config['SECRET_KEY'] = "random string"
 # app.config['MYSQL_PASSWORD'] = 'mysql123'
 # app.config['MYSQL_DB'] = 'assignment2'
 
-app.config['MYSQL_HOST'] = 'mysql://bcbe3ecbe657e9:9bc1f7f8@us-cdbr-iron-east-05.cleardb.net/heroku_8f20dfbc3cc6da2?reconnect=true'
-app.config['MYSQL_USER'] = 'bcbe3ecbe657e9'
-app.config['MYSQL_PASSWORD'] = '9bc1f7f8'
-app.config['MYSQL_DB'] = 'heroku_8f20dfbc3cc6da2'
+app.config['MYSQL_HOST'] = 'us-cdbr-east-03.cleardb.com'
+app.config['MYSQL_USER'] = 'b569df9f38e2c9'
+app.config['MYSQL_PASSWORD'] = 'd0501f82'
+app.config['MYSQL_DB'] = '`heroku_e288a286b7783b3`'
 
 
 
