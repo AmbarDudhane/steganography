@@ -9,15 +9,15 @@ from textstegno import TextStegno
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = "random string"
-app.config['MYSQL_HOST'] = '127.0.0.1'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'mysql123'
-app.config['MYSQL_DB'] = 'assignment2'
+# app.config['MYSQL_HOST'] = '127.0.0.1'
+# app.config['MYSQL_USER'] = 'root'
+# app.config['MYSQL_PASSWORD'] = 'mysql123'
+# app.config['MYSQL_DB'] = 'assignment2'
 
-# app.config['MYSQL_HOST'] = 'us-cdbr-east-03.cleardb.com'
-# app.config['MYSQL_USER'] = 'b569df9f38e2c9'
-# app.config['MYSQL_PASSWORD'] = 'd0501f82'
-# app.config['MYSQL_DB'] = 'heroku_e288a286b7783b3'
+app.config['MYSQL_HOST'] = 'us-cdbr-east-03.cleardb.com'
+app.config['MYSQL_USER'] = 'b569df9f38e2c9'
+app.config['MYSQL_PASSWORD'] = 'd0501f82'
+app.config['MYSQL_DB'] = 'heroku_e288a286b7783b3'
 
 
 
