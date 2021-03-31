@@ -9,10 +9,17 @@ from textstegno import TextStegno
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = "random string"
-app.config['MYSQL_HOST'] = '127.0.0.1'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'mysql123'
-app.config['MYSQL_DB'] = 'assignment2'
+# app.config['MYSQL_HOST'] = '127.0.0.1'
+# app.config['MYSQL_USER'] = 'root'
+# app.config['MYSQL_PASSWORD'] = 'mysql123'
+# app.config['MYSQL_DB'] = 'assignment2'
+
+app.config['MYSQL_HOST'] = 'mysql://bcbe3ecbe657e9:9bc1f7f8@us-cdbr-iron-east-05.cleardb.net/heroku_8f20dfbc3cc6da2?reconnect=true'
+app.config['MYSQL_USER'] = 'bcbe3ecbe657e9'
+app.config['MYSQL_PASSWORD'] = '9bc1f7f8'
+app.config['MYSQL_DB'] = 'heroku_8f20dfbc3cc6da2'
+
+
 
 app.config['UPLOAD_FOLDER'] = "temp"
 
