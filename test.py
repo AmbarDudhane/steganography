@@ -1,7 +1,4 @@
-import os
-basepath = './encrypted/'
-filelist = []
-for entry in os.listdir(basepath):
-    if os.path.isfile(os.path.join(basepath, entry)):
-        filelist.append()
-print("File List:", filelist)
+from stegano import lsb
+
+secret = lsb.hide("C://Users//Ambar//OneDrive//Pictures//Steg.docx", "Hello World")
+secret.save("./enc_steg.docx")

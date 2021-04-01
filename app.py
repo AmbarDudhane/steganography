@@ -1,7 +1,9 @@
-from flask import Flask, render_template, request, flash, send_file
+from flask import Flask, render_template, request, flash, send_file, redirect
 from flask_mysqldb import MySQL
 from werkzeug.utils import secure_filename
 import os
+
+from AudioStegno import AudioStegno
 from ImageStegno import ImageStegno
 from VideoStegno import VideoStegno
 from textstegno import TextStegno
@@ -117,13 +119,17 @@ def processEncryption():
     elif filetype == "video":
         vidsteg = VideoStegno()
         vidsteg.loadVideo(request.form['secretmessage'], filename)
-    return ""
+    elif filetype == "audio":
+        audiosteg = AudioStegno()
+        audiosteg.load(request.form['secretmessage'], filename)
+    return redirect('index')
 
 
 def checkExtensionType(filename):
     img_extensions = ['png', 'jpg', 'jpeg']
     txt_extensions = ['txt']
     video_extensions = ["mp4", "avi", "wmv"]
+    audio_extensions = ['wav']
     splitlist = filename.split(".")
 
     if splitlist[1] in img_extensions:
@@ -132,6 +138,8 @@ def checkExtensionType(filename):
         return "text"
     elif splitlist[1] in video_extensions:
         return "video"
+    elif splitlist[1] in audio_extensions:
+        return "audio"
 
 
 if __name__ == '__main__':
