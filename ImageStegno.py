@@ -68,7 +68,7 @@ class ImageStegno:
         print("The original image is as shown below: ")
         # image = imagefile
         resized_image = cv2.resize(image, (500, 500))  # resize the image as per your requirement
-        cv2.imshow("Resized image", resized_image)  # display the image
+        # cv2.imshow("Resized image", resized_image)  # display the image
 
         # data = input("Enter data to be encoded : ")
         # if (len(data) == 0):
