@@ -101,7 +101,7 @@ def checklogin():
 def processEncryption():
     fileobj = request.files['myfile']
 
-    filename = secure_filename(fileobj.filename)
+    filename = secure_filename(fileobj.filename.lower())
     fileobj.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
     # img.save(secure_filename(img.filename))     #save it to temp location
