@@ -60,7 +60,7 @@ def register():
         cur.close()
         # flash('Record was successfully added')
         print(request.form['first_name'], " Record added successfully")
-    return render_template('Index.html')
+    return render_template('success_register.html')
 
 
 @app.route('/checklogin', methods=['POST'])
@@ -79,7 +79,7 @@ def checklogin():
         else:
             return "Login unsuccessful"
 
-    return render_template('success_register.html')
+    return ""
 
 
 @app.route('/ProcessEncryption', methods=['POST'])
