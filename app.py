@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, request, flash, send_file
 from flask_mysqldb import MySQL
 from werkzeug.utils import secure_filename
 import os
@@ -20,7 +20,6 @@ app.config['MYSQL_PASSWORD'] = 'd0501f82'
 app.config['MYSQL_DB'] = 'heroku_e288a286b7783b3'
 
 
-
 app.config['UPLOAD_FOLDER'] = "temp"
 
 mysql = MySQL(app)
@@ -38,7 +37,23 @@ def login():
 
 @app.route('/index')
 def index():
-    return render_template('Index.html')
+    # List all files in a directory using os.listdir
+    basepath = './encrypted/'
+    filelist = []
+    for entry in os.listdir(basepath):
+        if os.path.isfile(os.path.join(basepath, entry)):
+            filelist.append(entry)
+    print("File List:", filelist)
+    return render_template('Index.html', filelist=filelist)
+
+
+@app.route('/download/<fileName>')
+def downloadFile(fileName):
+    print("File name to download: ", fileName)
+    try:
+        return send_file(r'./encrypted/' + fileName, as_attachment=True)
+    except Exception as e:
+        return str(e)
 
 
 @app.route('/showregister')
