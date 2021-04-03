@@ -43,8 +43,8 @@ class VideoStegno:
         height = img.shape[0]
         width = img.shape[1]
         frameSize = (width, height)
-
-        out = cv2.VideoWriter("encrypted//" + 'enc_' + filename, cv2.VideoWriter_fourcc(*'MPEG'), 30, frameSize)
+        split = filename.split(".")
+        out = cv2.VideoWriter("encrypted//" + 'enc_' + split[0]+".avi", cv2.VideoWriter_fourcc(*'MPEG'), 30, frameSize)
 
         for filename in glob.glob('temp/frames/*.png'):
             img = cv2.imread(filename)
