@@ -36,7 +36,7 @@ class VideoStegno:
             secret_enc.save(f_name)
             print("[INFO] frame {} holds {}".format(f_name, split_string_list[i]))
 
-    def generateVideo(selfs):
+    def generateVideo(self, filename):
         img = cv2.imread('temp/frames/frame0.png')
         print("Type of img: ", type(img))
         # height, width, number of channels in image
@@ -44,7 +44,7 @@ class VideoStegno:
         width = img.shape[1]
         frameSize = (width, height)
 
-        out = cv2.VideoWriter("encrypted//" + 'output_video.mp4', cv2.VideoWriter_fourcc(*'DIVX'), 60, frameSize)
+        out = cv2.VideoWriter("encrypted//" + 'enc_'+filename, cv2.VideoWriter_fourcc(*'XVID'), 30, frameSize)
 
         for filename in glob.glob('temp/frames/*.png'):
             img = cv2.imread(filename)
@@ -70,4 +70,4 @@ class VideoStegno:
         self.encode_string(secretMsg)
 
         # make final video
-        self.generateVideo()
+        self.generateVideo(filename)
