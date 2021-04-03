@@ -78,4 +78,4 @@ class VideoStegno:
         self.generateVideo(filename)
 
         # clear the frames dir
-        self.clearframes()
+        # self.clearframes()
