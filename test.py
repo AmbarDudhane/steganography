@@ -1,4 +1,5 @@
-from stegano import lsb
+import os
+import glob
 
-secret = lsb.hide("C://Users//Ambar//OneDrive//Pictures//Steg.docx", "Hello World")
-secret.save("./enc_steg.docx")
+for filename in glob.glob('temp/frames/*.png'):
+    print(filename)

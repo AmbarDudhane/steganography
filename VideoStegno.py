@@ -38,19 +38,24 @@ class VideoStegno:
 
     def generateVideo(self, filename):
         img = cv2.imread('temp/frames/frame0.png')
-        print("Type of img: ", type(img))
+
         # height, width, number of channels in image
         height = img.shape[0]
         width = img.shape[1]
         frameSize = (width, height)
 
-        out = cv2.VideoWriter("encrypted//" + 'enc_'+filename, cv2.VideoWriter_fourcc(*'XVID'), 30, frameSize)
+        out = cv2.VideoWriter("encrypted//" + 'enc_' + filename, cv2.VideoWriter_fourcc(*'XVID'), 30, frameSize)
 
         for filename in glob.glob('temp/frames/*.png'):
             img = cv2.imread(filename)
             out.write(img)
 
         out.release()
+
+    def clearframes(self):
+
+        for filename in glob.glob('temp/frames/*.png'):
+            os.remove(filename)
 
     def loadVideo(self, secretMsg, filename):
         vidcap = cv2.VideoCapture("temp//" + filename)
@@ -71,3 +76,6 @@ class VideoStegno:
 
         # make final video
         self.generateVideo(filename)
+
+        # clear the frames dir
+        self.clearframes()

@@ -84,13 +84,12 @@ def register():
 def checklogin():
     if request.method == 'POST':
         result = request.form
-        print("Email: ", result["login"])
-        print("Password: ", result["password"])
+
         temp = (result["login"], result["password"])
         cur = mysql.connection.cursor()
         cur.execute("SELECT email, password FROM tbluser")
         rv = cur.fetchall()
-        print(rv)
+
         if temp in rv:
             return render_template("HideMessage.html")
         else:
