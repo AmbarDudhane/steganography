@@ -9,7 +9,7 @@ class TextStegno:
         print("Secret Message:", secretmsg, "filename: ", filename)
         f = open("temp//" + filename, "r")
         txtcontent = f.read()
-
+        
         bin_text = ''.join(format(ord(i), '08b') for i in txtcontent)
         bin_secretmsg = ''.join(format(ord(i), '08b') for i in secretmsg)
         outputbin = ""
